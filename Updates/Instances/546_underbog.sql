@@ -14,7 +14,7 @@ SET @PGUID := 48500; -- pools
 -- CREATURES
 -- =========
 
-INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 (@CGUID+2, 1, 93.06754, -360.3329, 33.21555, 100, 0, 0),
 (@CGUID+2, 2, 101.4254, -344.6663, 32.97791, 100, 0, 0),
 (@CGUID+2, 3, 96.96455, -311.3638, 32.52911, 100, 0, 0),
@@ -423,7 +423,7 @@ INSERT INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `pos
 (@CGUID+125,44,107.8272,-362.0116,57.31628,100,0,0);
 
 DELETE FROM creature_movement_template WHERE entry IN (18105,17882,17826);
-INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `script_id`) VALUES
+INSERT INTO `creature_movement_template` (`entry`, `pathId`, `point`, `PositionX`, `PositionY`, `PositionZ`, `orientation`, `waittime`, `ScriptId`) VALUES
 -- Ghaz'an (18105)
 -- water path
 ('18105', '0', '1', '234.011', '-472.349', '46', '4.60318', '0', '0'),
@@ -1160,6 +1160,57 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 DELETE FROM dbscripts_on_creature_movement WHERE id=1810501;
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 ('1810501', '0', '20', '1', '10', '0', '0', '0', '8', '0', '0', '0', '0', '0', '0', '0', '0', 'Ghaz''an - Random movement around current position');
+
+DELETE FROM spawn_group_formation WHERE Id=10002;
+INSERT INTO spawn_group_formation(Id, FormationType, FormationSpread, FormationOptions, PathId, MovementType, Comment) VALUES
+(10002,4,3,0,10002,2,'UB - Ray formation - Triangle');
+
+-- TODO: Clean up once formations stabilize
+REPLACE INTO spawn_group(Id, Name, Type, MaxCount, WorldState, Flags) VALUES
+(10002, 'UB - Ray formation - Hungarfen trash', 0, 0, 0, 1);
+REPLACE INTO spawn_group_spawn(Id, Guid, SlotId) VALUES
+(10002,@CGUID+13,0),
+(10002,@CGUID+16,1),
+(10002,@CGUID+19,2);
+DELETE FROM creature_linking WHERE guid IN(@CGUID+13,@CGUID+16,@CGUID+19);
+DELETE FROM creature_linking WHERE master_guid IN(@CGUID+13,@CGUID+16,@CGUID+19);
+
+DELETE FROM waypoint_path WHERE PathId IN(10002);
+INSERT INTO waypoint_path(PathId, Point, PositionX, PositionY, PositionZ, Orientation, Waittime, ScriptId, Comment) VALUES
+('10002', '1', '39.8324', '-229.47', '-4.53228', '0', '0', '5', NULL),
+('10002', '2', '46.257', '-241.332', '-4.53228', '0', '0', '0', NULL),
+('10002', '3', '57.8113', '-245.067', '-4.52833', '0', '0', '0', NULL),
+('10002', '4', '46.2711', '-241.162', '-4.53319', '0', '0', '0', NULL),
+('10002', '5', '39.8119', '-229.012', '-4.53319', '0', '0', '0', NULL),
+('10002', '6', '33.0846', '-220.049', '-4.53319', '0', '0', '0', NULL),
+('10002', '7', '31.4191', '-201.583', '-4.36945', '0', '0', '0', NULL),
+('10002', '8', '33.423', '-220.337', '-4.53293', '0', '0', '0', NULL);
+
+REPLACE INTO spawn_group(Id, Name, Type, MaxCount, WorldState, Flags) VALUES
+(10003, 'UB - Naga Broken formation - Ghazan trash', 0, 0, 0, 1);
+REPLACE INTO spawn_group_spawn(Id, Guid, SlotId) VALUES
+(10003,@CGUID+61,1),
+(10003,@CGUID+62,2),
+(10003,@CGUID+70,3),
+(10003,@CGUID+97,0);
+DELETE FROM creature_linking WHERE guid IN(@CGUID+61,@CGUID+62,@CGUID+70,@CGUID+97);
+DELETE FROM creature_linking WHERE master_guid IN(@CGUID+61,@CGUID+62,@CGUID+70,@CGUID+97);
+
+DELETE FROM spawn_group_formation WHERE Id=10003;
+INSERT INTO spawn_group_formation(Id, FormationType, FormationSpread, FormationOptions, PathId, MovementType, Comment) VALUES
+(10003,0,3,0,10003,2,'UB - Naga Broken formation - Ghazan trash');
+
+DELETE FROM waypoint_path WHERE PathId IN(10003);
+INSERT INTO waypoint_path(PathId, Point, PositionX, PositionY, PositionZ, Orientation, Waittime, ScriptId, Comment) VALUES
+('10003', '1', '211.702', '-380.781', '48.1706', '0', '0', '0', NULL),
+('10003', '2', '219.298', '-378.574', '48.1772', '0', '0', '0', NULL),
+('10003', '3', '228.64', '-376.503', '48.1903', '0', '0', '0', NULL),
+('10003', '4', '240.787', '-374.489', '48.2244', '0', '0', '0', NULL),
+('10003', '5', '228.163', '-376.683', '48.1922', '0', '0', '0', NULL),
+('10003', '6', '219.533', '-378.656', '48.1803', '0', '0', '0', NULL),
+('10003', '7', '211.634', '-381.018', '48.1742', '0', '0', '0', NULL),
+('10003', '8', '201.99', '-379.466', '48.1103', '0', '0', '0', NULL);
+
 
 -- INSERT INTO `dbscripts_on_creature_death` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
 -- INSERT INTO `dbscripts_on_go_use` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `comments`) VALUES
