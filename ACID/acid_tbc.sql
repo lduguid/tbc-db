@@ -14774,7 +14774,9 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('624007','6240','8','0','100','1','25203','-1','0','0','0','0','25','0','0','0','1','2356','0','0','0','0','0','0','Affray Challenger - Flee, Emote on Demoralizing Shout (Rank 7) Spellhit'),
 -- Twiggy Flathead 6248 - npc_twiggy_flathead
 -- Summoned Felhunter 6268
-('626801','6268','18','0','100','1025','100','10','11000','17000','0','0','11','2691','1','0','0','0','0','0','0','0','0','0','Summoned Felhunter - Cast Mana Burn on Target Mana User'),
+('626801','6268','11','0','100','1025','0','0','0','0','0','0','11','7741','0','0','0','0','0','0','0','0','0','0','Summoned Felhunter - Cast Summoned Demon - On Spawn'),
+('626802','6268','18','0','100','1025','100','10','11000','17000','0','0','11','2691','1','0','0','0','0','0','0','0','0','0','Summoned Felhunter - Cast Mana Burn on Target Mana User'),
+('626803','6268','1','0','100','1025','6000','6000','6000','6000','0','0','53','17952','0','0','0','0','0','0','0','0','0','0','Summoned Felhunter - Start Releay Script - 6sec OOC'),
 -- Tazan 6494
 ('649401','6494','9','0','80','1025','0','5','6500','10800','0','0','11','6253','1','0','0','0','0','0','0','0','0','0','Tazan - Cast Backhand'),
 -- Overseer Glibby 6606
@@ -19624,7 +19626,10 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Altar of Sha'tar Vindicator 21986
 ('2198601','21986','0','0','100','1025','3000','7000','8500','10000','0','0','11','12024','1','0','0','0','0','0','0','0','0','0','Altar of Sha''tar Vindicator - Cast Net'),
 -- Kor'kron Wind Rider 21998
-('2199801','21998','29','0','100','0','3500','3500','0','0','0','0','54','19675','11','0','0','0','0','0','0','0','0','0','Kor''kron Wind Rider - Say on Generic Timer'),
+('2199801','21998','11','0','100','0','0','0','0','0','0','0','21','0','0','0','20','0','0','0','50','0','0','0','Kor''kron Wind Rider - Prevent Combat Movement, Prevent Melee, and Set React State Passive on Spawn'),
+('2199802','21998','11','0','100','0','0','0','0','0','0','0','53','10212','11','0','11','38137','0','0','0','0','0','0','Kor''kron Wind Rider - Start Relay Script (Fly to Player) and Cast Summon Spawn Marker on Spawn'),
+('2199803','21998','1','0','100','0','5000','5000','0','0','0','0','54','19675','11','0','0','0','0','0','0','0','0','0','Kor''kron Wind Rider - Say on Timer OOC'),
+('2199804','21998','0','0','100','0','2000','2000','0','0','0','0','54','19698','11','0','53','10211','0','0','0','0','0','0','Kor''kron Wind Rider - Say and Start Relay Script (Fly to Spawn Marker)'),
 -- Dragonmaw Nether Drake 22000
 ('2200001','22000','0','0','100','1025','5000','10000','16000','20000','0','0','11','38344','1','0','0','0','0','0','0','0','0','0','Dragonmaw Nether Drake - Cast Arcane Blast'),
 ('2200002','22000','0','0','100','1025','4000','8000','12000','16000','0','0','11','36513','0','0','0','0','0','0','0','0','0','0','Dragonmaw Nether Drake - Cast Intangible Presence'),
@@ -19658,7 +19663,10 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2203702','22037','28','0','100','1025','13444','5','5000','9000','0','0','11','13444','1','0','0','0','0','0','0','0','0','0','Smith Gorlunk - Cast Sunder Armor on Target Missing Sunder Armor Aura Stack'),
 -- Heart of Fury Visual Trigger 22058 - NullAI
 -- Wildhammer Gryphon Rider 22059
-('2205901','22059','29','0','100','0','3500','3500','0','0','0','0','54','19742','11','0','0','0','0','0','0','0','0','0','Wildhammer Gryphon Rider - Say on Generic Timer'),
+('2205901','22059','11','0','100','0','0','0','0','0','0','0','21','0','0','0','20','0','0','0','50','0','0','0','Wildhammer Gryphon Rider - Prevent Combat Movement, Prevent Melee, and Set React State Passive on Spawn'),
+('2205902','22059','11','0','100','0','0','0','0','0','0','0','53','10212','11','0','11','38137','0','0','0','0','0','0','Wildhammer Gryphon Rider - Start Relay Script (Fly to Player) and Cast Summon Spawn Marker on Spawn'),
+('2205903','22059','1','0','100','0','5000','5000','0','0','0','0','54','19742','11','0','0','0','0','0','0','0','0','0','Wildhammer Gryphon Rider - Say on Timer OOC'),
+('2205904','22059','0','0','100','0','2000','2000','0','0','0','0','54','19743','11','0','53','10211','0','0','0','0','0','0','Wildhammer Gryphon Rider - Say and Start Relay Script (Fly to Spawn Marker)'),
 -- Shadowmoon Soulstealer 22061 - mob_shadowmoon_soulstealer
 -- Air Force Guard Post (Scryer - Dragonhawk) 22066 - npc_air_force_bots
 -- Air Force Trip Wire - Rooftop (Scryer) 22070 - npc_air_force_bots
@@ -30932,11 +30940,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('1638003','16380','0','0','100','1025','0','0','5000','10000','0','0','11','28265','1','0','0','0','0','0','0','0','0','0','Bone Witch - Cast Scourge Strike'),
 ('1638004','16380','11','0','100','0','0','0','0','0','0','0','57','2','35','0','11','32900','0','34','0','0','0','0','Bone Witch - Enable Range Mode and Cast Bone Shards Proc on Spawn'),
 ('1638005','16380','0','0','100','1025','1000','3000','3000','3000','0','0','11','20720','1','256','0','0','0','0','0','0','0','0','Bone Witch - Cast Arcane Bolt'),
--- Flameshocker 16383 - Recheck Timers
-('1638301','16383','29','0','100','1','0','0','10000','10000','0','0','45','5','75','0','0','0','0','0','0','0','0','0','Flameshocker - Send AI Event 5 on Generic Timer'),
-('1638302','16383','11','0','100','0','0','0','0','0','0','0','11','28330','0','34','0','0','0','0','0','0','0','0','Flameshocker - Cast Flameshocker - Immolate Visual on Spawn'),
-('1638303','16383','6','0','100','0','0','0','0','0','0','0','11','28323','15','2','0','0','0','0','0','0','0','0','Flameshocker - Cast Flameshocker''s Revenge on Death'),
-('1638304','16383','0','0','100','1025','5000','10000','10000','20000','0','0','11','28314','1','32','0','0','0','0','0','0','0','0','Flameshocker - Cast Flameshocker''s Touch'),
+-- Flameshocker 16383 - SD2 scourge_invasion_minion
 -- Pallid Horror 16394 - Recheck Timers
 ('1639401','16394','29','0','100','1','0','0','10000','10000','0','0','45','5','75','0','0','0','0','0','0','0','0','0','Pallid Horror - Send AI Event 5 on Generic Timer'),
 ('1639402','16394','6','0','100','0','0','0','0','0','0','0','11','28699','15','2','0','0','0','0','0','0','0','0','Pallid Horror - Cast Summon Faint Necrotic Crystal on Death'),
