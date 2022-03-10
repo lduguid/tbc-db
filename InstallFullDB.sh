@@ -1430,33 +1430,25 @@ function apply_dev_content
   fi
 
   echo "> Trying to apply development updates"
-  for UPDATEFILE in "${ADDITIONAL_PATH}dev/*.sql"
-  do
+  for UPDATEFILE in ${ADDITIONAL_PATH}dev/*.sql; do
     if [ -e "$UPDATEFILE" ]; then
-      for UPDATE in "${ADDITIONAL_PATH}dev/*.sql";do
-        local fName=$(basename "$f")
-        if ! execute_sql_file "$WORLD_DB_NAME" "$UPDATE" "  - Applying $fName"; then
-          false
-          return
-        fi
-      done
+      local fName=$(basename "$UPDATEFILE")
+      if ! execute_sql_file "$WORLD_DB_NAME" "$UPDATEFILE" "  - Applying $fName"; then
+        false
+        return
+      fi
     fi
-    break
   done
 
   # processing individual folder in dev folder
-  for UPDATEFILE in "${ADDITIONAL_PATH}dev/*/*.sql"
-  do
+  for UPDATEFILE in ${ADDITIONAL_PATH}dev/*/*.sql; do
     if [ -e "$UPDATEFILE" ]; then
-      for UPDATE in "${ADDITIONAL_PATH}dev/*/*.sql";do
-        local fName=$(basename "$f")
-        if ! execute_sql_file "$WORLD_DB_NAME" "$UPDATE" "  - Applying $fName"; then
-          false
-          return
-        fi
-      done
+      local fName=$(basename "$UPDATEFILE")
+      if ! execute_sql_file "$WORLD_DB_NAME" "$UPDATEFILE" "  - Applying $fName"; then
+        false
+        return
+      fi
     fi
-    break
   done
   echo
   true
@@ -1732,13 +1724,16 @@ function create_and_fill_world_db()
     fi
   fi
 
-  if [ "${STATUS_WORLD_DB_FOUND}" -eq true ] AND [ ! -z $DB_WORLDDB_VERSION ]; then
-    backup_create "WORLD"
+  if [[ "${STATUS_WORLD_DB_FOUND}" = true ]]; then
+    if [ ! -z $DB_WORLDDB_VERSION ]; then
+      backup_create "WORLD"
+    fi
   fi
 
   create_database "WORLD"
 
-  echo -ne "Executing world db base sql ..."
+  local fname=$(basename "$SQL_FILE_BASE_WORLD")
+  echo -ne "Applying $fname ..."
   if ! execute_sql_file "$WORLD_DB_NAME" "$SQL_FILE_BASE_WORLD"; then
     echo "FAILED!"
     echo ">>> $ERRORS"
