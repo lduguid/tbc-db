@@ -4377,10 +4377,14 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('247601','2476','0','0','85','1025','4100','13900','32200','46200','0','0','11','3427','1','32','0','0','0','0','0','0','0','0','Large Loch Crocolisk - Cast Infected Wound'),
 -- Greishan Ironstove 3291
 ('329101','3291','1','0','100','1','1000','1000','60000','60000','0','0','54','0','0','896','0','0','0','0','0','0','0','0','Greishan Ironstove - Random Say OOC'),
--- Mountaineer Pebblebitty 3836 - npc_mountaineer_pebblebitty
--- Shanda the Spinner
-('1426601','14266','1','0','100','0','1000','1000','0','0','0','0','11','11919','0','32','0','0','0','0','0','0','0','0','Shanda the Spinner - Cast Poison Proc OOC'),
--- Emogg the Crusher (2.4.3 Official Data)
+-- Mountaineer Pebblebitty 3836
+('383601','3836','22','0','100','1','101','0','0','0','0','0','5','3','0','0','0','0','0','0','0','0','0','0','Mountaineer Pebblebitty - Wave on Receive Emote Wave'),
+('383602','3836','22','0','100','1','78','0','0','0','0','0','5','66','0','0','0','0','0','0','0','0','0','0','Mountaineer Pebblebitty - Salute Emote on Receive Salute Emote'),
+('383603','3836','22','0','100','1','77','0','0','0','0','0','1','1402','1403','1404','0','0','0','0','0','0','0','0','Mountaineer Pebblebitty - Random Say on Receive Rude Emote'),
+('383604','3836','22','0','100','1','41','0','0','0','0','0','1','1401','0','0','5','11','0','0','0','0','0','0','Mountaineer Pebblebitty - Say and Emote on Flex Emote'),
+-- Shanda the Spinner 14266
+('1426601','14266','11','0','100','0','0','0','0','0','0','0','11','11919','0','2','0','0','0','0','0','0','0','0','Shanda the Spinner - Cast Poison Proc on Spawn'),
+-- Emogg the Crusher 14267 (2.4.3 Official Data)
 ('1426701','14267','4','0','80','0','0','0','0','0','0','0','1','1925','1926','1927','0','0','0','0','0','0','0','0','Emogg the Crusher - Random Say on Aggro'),
 -- Lord Condar 14268 - NSR
 
@@ -5736,8 +5740,6 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Bloodscalp Hunter 595 - creature_spell_list
 ('59501','595','4','0','100','0','0','0','0','0','0','0','57','2','25','0','0','0','0','0','0','0','0','0','Bloodscalp Hunter - Enable Range Mode on Aggro'),
 ('59502','595','2','0','100','1024','30','0','0','0','0','0','11','8599','0','0','1','2384','0','0','0','0','0','0','Bloodscalp Hunter - Cast Enrage at 30% HP'),
-('59503','595','0','0','100','1025','0','20000','18400','29800','0','0','11','6533','4','1024','0','0','0','0','0','0','0','0','Bloodscalp Hunter - Cast Net'),
-('59504','595','9','0','100','1025','5','30','2000','3000','0','0','11','6660','1','256','0','0','0','0','0','0','0','0','Bloodscalp Hunter - Cast Shoot'),
 -- Bloodscalp Berserker 597
 ('59701','597','2','0','100','1024','30','0','0','0','0','0','11','8599','0','0','1','2384','0','0','0','0','0','0','Bloodscalp Berserker - Cast Enrage at 30% HP'),
 ('59702','597','2','0','100','0','15','0','0','0','0','0','25','0','0','0','1','1150','0','0','0','0','0','0','Bloodscalp Berserker - Flee at 15% HP'),
@@ -23098,16 +23100,34 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('2112801','21128','0','0','100','1025','1300','4900','12100','21300','0','0','11','34984','5','544','0','0','0','0','0','0','0','0','Coilfang Ray - Cast Psychic Horror'),
 -- Skar'this the Heretic 22421 - npc_quest_attunement
 -- Ahune (25740) - boss_ahune
--- Ahunite Hailstone
+-- Ahunite Hailstone 25755
 ('2575501','25755','11','0','100','2','0','0','0','0','0','0','11','46542','0','0','0','0','0','0','0','0','0','0','Ahunite Hailstone (Normal) - Cast Chilling Aura on Spawn'),
 ('2575502','25755','11','0','100','4','0','0','0','0','0','0','11','46885','0','0','0','0','0','0','0','0','0','0','Ahunite Hailstone (Heroic) - Cast Chilling Aura on Spawn'),
--- Ahunite Coldwave
+-- Ahunite Coldwave 25756
 ('2575601','25756','0','0','100','1027','1000','1000','4000','5000','0','0','11','46406','1','0','0','0','0','0','0','0','0','0','Ahunite Coldwave (Normal) - Cast Bitter Blast'),
 ('2575602','25756','0','0','100','1029','1000','1000','4000','5000','0','0','11','46887','1','0','0','0','0','0','0','0','0','0','Ahunite Coldwave (Heroic) - Cast Bitter Blast'),
--- Ahunite Frostwind
+-- Ahunite Frostwind 25757
 ('2575701','25757','0','0','100','1025','3000','6000','4000','7000','0','0','11','46568','1','0','0','0','0','0','0','0','0','0','Ahunite Frostwind - Cast Wind Buffet'),
 -- Frozen Core 25865 - npc_frozen_core
+-- Shaman Beam Bunny 000 - 25964
+('2596401','25964','11','0','100','0','0','0','0','0','0','0','53','20598','0','1','0','0','0','0','0','0','0','0','Shaman Beam Bunny 000 - START_RELAY_SCRIPT on Spawn'),
+('2596402','25964','8','0','100','0','45964','-1','0','0','0','0','11','46333','0','0','11','46336','0','0','0','0','0','0','Shaman Beam Bunny 000 - Cast Find Opening Beam End and Beam Attack against Ahune spellhit'),
+('2596403','25964','29','0','100','0','82000','82000','0','0','0','0','53','20601','0','0','0','0','0','0','0','0','0','0','Shaman Beam Bunny 000 - START_RELAY_SCRIPT on Timer'),
+-- Shaman Beam Bunny 001 - 25965
+('2596501','25965','11','0','100','0','0','0','0','0','0','0','53','20599','0','1','0','0','0','0','0','0','0','0','Shaman Beam Bunny 001 - START_RELAY_SCRIPT on Spawn'),
+('2596502','25965','8','0','100','0','45964','-1','0','0','0','0','11','46333','0','0','11','46336','0','0','0','0','0','0','Shaman Beam Bunny 001 - Cast Find Opening Beam End and Beam Attack against Ahune spellhit'),
+-- Shaman Beam Bunny 002 - 25966
+('2596601','25966','11','0','100','0','0','0','0','0','0','0','53','20600','0','1','0','0','0','0','0','0','0','0','Shaman Beam Bunny 002 - START_RELAY_SCRIPT on Spawn'),
+('2596602','25966','8','0','100','0','45964','-1','0','0','0','0','11','46333','0','0','11','46336','0','0','0','0','0','0','Shaman Beam Bunny 001 - Cast Find Opening Beam End and Beam Attack against Ahune spellhit'),
+-- Shaman Bonfire Bunny 000 - 25971
+('2597101','25971','8','0','100','0','46341','-1','0','0','0','0','53','20598','0','0','0','0','0','0','0','0','0','0','Shaman Bonfire Bunny 000 - START_RELAY_SCRIPT on Find Opening Visual Trigger spellhit'),
+-- Shaman Bonfire Bunny 001 - 25972
+('2597201','25972','8','0','100','0','46341','-1','0','0','0','0','53','20599','0','0','0','0','0','0','0','0','0','0','Shaman Bonfire Bunny 001 - START_RELAY_SCRIPT on Find Opening Visual Trigger spellhit'),
+-- Shaman Bonfire Bunny 002 - 25973
+('2597301','25973','8','0','100','0','46341','-1','0','0','0','0','53','20600','0','0','0','0','0','0','0','0','0','0','Shaman Bonfire Bunny 002 - START_RELAY_SCRIPT on Find Opening Visual Trigger spellhit'),
 -- Ahune Ice Spear Bunny 25985 - npc_ice_spear_bunny
+-- [PH] Spank Target Bunny 26190
+('2619001','26190','8','0','100','1','46735','-1','0','0','0','0','11','46734','6','0','0','0','0','0','0','0','0','0','Spank Target Bunny - Cast Spank - Knock To on Spank - Force Bunny To Knock You To spellhit'),
 
 
 
