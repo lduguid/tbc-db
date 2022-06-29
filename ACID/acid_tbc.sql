@@ -8653,8 +8653,8 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('461904','4619','2','0','100','1025','20','0','15000','25000','0','0','11','6925','0','0','0','0','0','0','0','0','0','0','Geltharis - Cast Gift of the Xavian at 20% HP'),
 -- Illusionary Nightmare (4785) - NSR
 -- Fallenroot Rogue 4789
-('478901','4789','1','0','100','0','1000','1000','0','0','0','0','11','30831','0','32','0','0','0','0','0','0','0','0','Fallenroot Rogue - Cast Stealth OOC'),
-('478902','4789','33','0','100','1025','0','0','10000','13000','0','0','11','6595','1','0','0','0','0','0','0','0','0','0','Fallenroot Rogue - Cast Exploit Weakness on Facing Target Back'),
+('478901','4789','1','0','100','1','1000','1000','5000','5000','0','0','11','7939','0','34','11','22766','0','34','0','0','0','0','Fallenroot Rogue - Cast Stealth OOC'),
+('478902','4789','33','0','100','1025','0','0','9000','12000','0','0','11','6595','1','0','0','0','0','0','0','0','0','0','Fallenroot Rogue - Cast Exploit Weakness on Facing Target Back'),
 -- Blackfathom Tide Priestess 4802
 ('480201','4802','4','0','100','0','0','0','0','0','0','0','57','2','35','0','0','0','0','0','0','0','0','0','Blackfathom Tide Priestess - Enable Range Mode on Aggro'),
 ('480202','4802','2','0','100','1024','15','0','0','0','0','0','25','0','0','0','1','1150','0','0','0','0','0','0','Blackfathom Tide Priestess - Flee at 15% HP'),
@@ -11281,9 +11281,10 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Tabetha (6546) - NSR
 -- Demon of the Orb (6549) - NSR
 -- Mana Surge 6550
-('655001','6550','11','0','100','0','0','0','0','0','0','0','57','2','15','0','50','0','0','0','0','0','0','0','Mana Surge - Enable Range Mode and Set ReactState Passive on Spawn'),
-('655002','6550','0','0','100','1025','8000','11000','9000','12000','0','0','11','11824','4','0','0','0','0','0','0','0','0','0','Mana Surge - Cast Shock'),
-('655003','6550','9','0','100','1025','0','40','3400','4800','0','0','11','9532','1','256','0','0','0','0','0','0','0','0','Mana Surge - Cast Lightning Bolt'),
+('655001','6550','11','0','100','0','0','0','0','0','0','0','57','2','15','0','0','0','0','0','0','0','0','0','Mana Surge - Enable Range Mode on Spawn'),
+('655002','6550','0','0','100','1025','0','10000','9000','12000','0','0','11','11824','4','0','0','0','0','0','0','0','0','0','Mana Surge - Cast Shock'),
+('655003','6550','0','0','100','1281','0','0','3000','4000','0','0','11','9532','1','256','0','0','0','0','0','0','0','0','Mana Surge - Cast Lightning Bolt (Range Mode)'),
+('655004','6550','0','0','100','1537','0','0','5000','20000','0','0','11','9532','1','256','0','0','0','0','0','0','0','0','Mana Surge - Cast Lightning Bolt (Melee Mode)'),
 -- Ghok'kah (6567) - NSR
 -- Amie Pierce
 ('673201','6732','2','0','100','0','15','0','0','0','0','0','25','0','0','0','1','1150','0','0','0','0','0','0','Amie Pierce - Flee at 15% HP'),
@@ -13870,6 +13871,8 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Derotain Mudsipper (14567) - NSR
 -- Jhordy Lapforge (14743) - npc_engineering_tele_trinket
 -- Haughty Modiste (15165) - NSR
+-- Anachronos 15192
+('1519201','15192','2','0','100','1024','20','0','0','0','0','0','1','10658','0','0','41','3000','0','0','0','0','0','0','Anachronos - Say, Delayed Despawn at 20% HP'),
 -- O'Reily (15520) - NSR
 -- Meridith the Mermaiden (15526) - NSR
 -- Elder Ragetotem (15573) - NSR
@@ -23858,9 +23861,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Mechano-Flamewalker 6226 (3.3.5a Official Data)
 ('622601','6226','9','0','100','1025','0','5','10900','20400','0','0','11','10733','1','0','0','0','0','0','0','0','0','0','Mechano-Flamewalker - Cast Flame Spray'),
 ('622602','6226','0','0','100','1025','10200','18100','14400','25300','0','0','11','11970','17','0','0','0','0','0','0','0','0','0','Mechano-Flamewalker - Cast Fire Nova'),
--- Mechano-Frostwalker 6227 (3.3.5a Official Data)
-('622701','6227','0','0','100','1025','0','10000','26700','30700','0','0','11','10737','0','0','0','0','0','0','0','0','0','0','Mechano-Frostwalker - Cast Hail Storm'),
-('622702','6227','0','0','100','1025','17100','17100','21100','34600','0','0','11','11264','17','0','0','0','0','0','0','0','0','0','Mechano-Frostwalker - Cast Ice Blast'),
+-- Mechano-Frostwalker 6227 - creature_spell_list
 -- Dark Iron Ambassador 6228 (CURRENT DATA ALL ROUGH SCRIPTED) - REQUIRE OFFICIAL DATA
 ('622801','6228','8','0','100','0','9798','-1','0','0','0','0','1','3367','0','0','0','0','0','0','0','0','0','0','Dark Iron Ambassador - Emote on Radiation Spellhit'),
 ('622802','6228','4','0','100','0','0','0','0','0','0','0','57','2','35','0','0','0','0','0','0','0','0','0','Dark Iron Ambassador - Enable Range Mode on Aggro'),
