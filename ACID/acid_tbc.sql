@@ -5630,7 +5630,11 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Brother Sarno 7917
 ('791701','7917','10','0','100','1','1','5','30000','60000','1','0','59','6','0','0','54','3988','6','0','0','0','0','0','Brother Sarno - Set Facing and Say OOC LOS'),
 -- Lillian Singh 8118
--- Master Wood 8383 - (EMOTES NEED TO BE SCRIPTED)
+-- Master Wood 8383
+('838301','8383','22','0','100','1','101','0','0','0','0','0','5','3','0','0','0','0','0','0','0','0','0','0','Master Wood - Wave on Receive Emote Wave'),
+('838302','8383','22','0','100','1','78','0','0','0','0','0','5','66','0','0','0','0','0','0','0','0','0','0','Master Wood - Salute Emote on Receive Salute Emote'),
+('838303','8383','22','0','100','1','77','0','0','0','0','0','1','1402','1403','1404','0','0','0','0','0','0','0','0','Master Wood - Random Say on Receive Rude Emote'),
+('838304','8383','22','0','100','1','41','0','0','0','0','0','1','1401','0','0','5','11','0','0','0','0','0','0','Master Wood - Say and Emote on Flex Emote'),
 -- Lil Timmy 8666
 ('866601','8666','1','0','100','1','7000','7000','40000','60000','0','0','54','0','0','4','0','0','0','0','0','0','0','0','Lil Timmy - Random Say OOC'),
 -- Auctioneer Chilton 8670
@@ -17510,6 +17514,7 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 ('1944302','19443','0','0','100','1025','10000','20000','29000','41500','0','0','11','34109','0','0','0','0','0','0','0','0','0','0','Tagar Spinebreaker - Cast Whirlwind Knockback'),
 -- Operations Officer 19446
 ('1944601','19446','1','0','75','1','30000','90000','90000','320000','0','0','1','16760','16759','16758','0','0','0','0','0','0','0','0','Operations Officer - (75% chance) Say on OOC Timer'),
+('1944602','19446','30','0','100','1','5','19445','0','0','0','0','53','19985','0','0','0','0','0','0','0','0','0','0','Operations Officer - START_RELAY_SCRIPT on Receive AI Event Custom A'),
 -- Grillok "Darkeye" 19457
 ('1945701','19457','1','0','100','1','1000','1000','600000','600000','0','0','11','12550','0','0','0','0','0','0','0','0','0','0','Grillok "Darkeye" - Cast Lightning Shield on Spawn'),
 ('1945702','19457','0','0','100','1025','5000','9000','9000','13000','0','0','11','32062','0','0','0','0','0','0','0','0','0','0','Grillok "Darkeye" - Cast Fire Nova Totem'),
@@ -30674,7 +30679,14 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Searing Totem 2523 - TotemAI
 -- Earthbind Totem 2630 - TotemAI
 -- Ward of Laze 2667 - TotemAI
--- Advanced Target Dummy 2674 - npc_advanced_target_dummy
+-- Target Dummy 2673
+('267301','2673','11','0','100','0','0','0','0','0','0','0','64','0','0','0','61','0','0','0','21','0','0','0','Target Dummy - Disable FOLLOW_MOVEMENT and Set IMMOBILIZED_STATE and Prevent Combat Movement on Spawn'),
+('267302','2673','11','0','100','0','0','0','0','0','0','0','11','4044','0','34','11','27791','0','34','0','0','0','0','Target Dummy - Cast Target Dummy Passive, Suicide on Spawn'),
+('267303','2673','6','0','100','0','0','0','0','0','0','0','41','10000','0','0','0','0','0','0','0','0','0','0','Target Dummy - Despawn 0 on Death'),
+-- Advanced Target Dummy 2674
+('267401','2674','11','0','100','0','0','0','0','0','0','0','64','0','0','0','61','0','0','0','21','0','0','0','Advanced Target Dummy - Disable FOLLOW_MOVEMENT and Set IMMOBILIZED_STATE and Prevent Combat Movement on Spawn'),
+('267402','2674','11','0','100','0','0','0','0','0','0','0','11','4048','0','34','11','27791','0','34','0','0','0','0','Advanced Target Dummy - Cast Advanced Target Dummy Passive, Suicide on Spawn'),
+('267403','2674','6','0','100','0','0','0','0','0','0','0','41','10000','0','0','0','0','0','0','0','0','0','0','Advanced Target Dummy - Despawn 0 on Death'),
 -- Explosive Sheep 2675
 ('267501','2675','11','0','100','0','0','0','0','0','0','0','11','4051','0','2','11','8279','0','2','0','0','0','0','Explosive Sheep - Cast Explosive Sheep Passive and Stealth Detection on Spawn'),
 -- Healing Ward V 2992 - TotemAI
@@ -30763,9 +30775,13 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Grace of Air Totem 7486 - TotemAI
 -- Grace of Air Totem II 7487 - TotemAI
 -- Goblin Land Mine 7527 - s.4100,10837,21688
-('752701','7527','11','0','100','0','0','0','0','0','0','0','50','0','0','0','0','0','0','0','0','0','0','0','Goblin Land Mine - Set ReactState Passive on Spawn'),
-('752702','7527','29','0','100','0','5000','5000','0','0','0','0','22','1','0','0','0','0','0','0','0','0','0','0','Goblin Land Mine - Set Phase 1 on Generic Timer'),
-('752703','7527','10','1','100','0','0','8','0','0','0','0','11','4043','15','0','37','0','0','0','0','0','0','0','Goblin Land Mine - Cast Detonation and Die on Hostile LOS (8y) (Phase 1)'),
+('752701','7527','11','0','100','0','0','0','0','0','0','0','64','0','0','0','61','0','0','0','21','0','0','0','Goblin Land Mine - Disable FOLLOW_MOVEMENT and Set IMMOBILIZED_STATE and Prevent Combat Movement on Spawn'),
+('752702','7527','11','0','100','0','0','0','0','0','0','0','11','11816','0','0','0','0','0','0','0','0','0','0','Goblin Land Mine - Cast Land Mine Arming on Spawn'),
+('752703','7527','29','0','100','0','100','100','0','0','0','0','1','3541','0','0','0','0','0','0','0','0','0','0','Goblin Land Mine - Say on Generic Timer'),
+('752704','7527','29','0','100','0','5000','5000','0','0','0','0','1','3542','0','0','0','0','0','0','0','0','0','0','Goblin Land Mine - Say on Generic Timer'),
+('752705','7527','29','0','100','0','10000','10000','0','0','0','0','1','3543','0','0','22','1','0','0','28','0','11816','0','Goblin Land Mine - Say and Set Phase 1 and remove aura on Generic Timer'),
+('752706','7527','9','1','100','0','0','8','0','0','0','0','11','4043','0','0','37','0','0','0','0','0','0','0','Goblin Land Mine - Cast Detonation and Die (Phase 1'),
+('752707','7527','6','0','100','0','0','0','0','0','0','0','41','1000','0','0','0','0','0','0','0','0','0','0','Goblin Land Mine - Despawn 0 on Death'),
 -- Fire Nova Totem IV 7844 - TotemAI
 -- Fire Nova Totem V 7845 - TotemAI
 -- Greater Healing Ward 8179 - TotemAI
@@ -30805,6 +30821,10 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Mammoth Shark 12125
 ('1212501','12125','11','0','100','0','0','0','0','0','0','0','11','12787','0','34','0','0','0','0','0','0','0','0','Mammoth Shark - Cast Thrash on Spawn'),
 -- Ice Totem 12141 - TotemAI
+-- Masterwork Target Dummy 12426
+('1242601','12426','11','0','100','0','0','0','0','0','0','0','64','0','0','0','61','0','0','0','21','0','0','0','Masterwork Target Dummy - Disable FOLLOW_MOVEMENT and Set IMMOBILIZED_STATE and Prevent Combat Movement on Spawn'),
+('1242602','12426','11','0','100','0','0','0','0','0','0','0','11','19809','0','34','11','27791','0','34','0','0','0','0','Masterwork Target Dummy - Cast Masterwork Target Dummy Passive, Suicide on Spawn'),
+('1242603','12426','6','0','100','0','0','0','0','0','0','0','41','10000','0','0','0','0','0','0','0','0','0','0','Masterwork Target Dummy - Despawn 0 on Death'),
 -- Imp Minion 12922 - Aggro Texts
 ('1292201','12922','4','0','100','0','0','0','0','0','0','0','57','2','25','0','0','0','0','0','0','0','0','0','Imp Minion - Enable Range Mode on Aggro'),
 ('1292202','12922','0','0','100','1025','1000','2000','2300','2800','0','0','11','20801','1','256','0','0','0','0','0','0','0','0','Imp Minion - Cast Firebolt'),
@@ -30839,6 +30859,10 @@ INSERT INTO `creature_ai_scripts` (`id`,`creature_id`,`event_type`,`event_invers
 -- Frostwolf Emissary 15106
 ('1510601','15106','1','0','100','1','10000','90000','20000','70000','0','0','10','11','18','0','0','0','0','0','0','0','0','0','Frostwolf Emissary - Random Laugh or Cry Emote'),
 ('1510602','15106','1','0','100','1','5000','25000','10000','30000','0','0','5','1','0','0','0','0','0','0','0','0','0','0','Frostwolf Emissary - Talk Emote OOC'),
+-- Gnomish Flame Turret 17458
+('1745801','17458','11','0','100','0','0','0','0','0','0','0','64','0','0','0','61','0','0','0','21','0','0','0','Gnomish Flame Turret - Disable FOLLOW_MOVEMENT and Set IMMOBILIZED_STATE and Prevent Combat Movement on Spawn'),
+('1745802','17458','11','0','100','0','0','0','0','0','0','0','50','1','0','0','0','0','0','0','0','0','0','0','Gnomish Flame Turret - Set Defensive state on Spawn'),
+('1745803','17458','9','0','100','1','0','10','1000','1000','0','0','11','30527','1','0','0','0','0','0','0','0','0','0','Gnomish Flame Turret - Cast Fire Blast'),
 -- Eye of the Storm Emissary 22013
 ('2201301','22013','1','0','100','1','10000','90000','20000','70000','0','0','10','11','18','0','0','0','0','0','0','0','0','0','Eye of the Storm Emissary - Random Laugh or Cry Emote'),
 ('2201302','22013','1','0','100','1','5000','25000','10000','30000','0','0','5','1','0','0','0','0','0','0','0','0','0','0','Eye of the Storm Emissary - Talk Emote OOC'),
