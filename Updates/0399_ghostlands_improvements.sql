@@ -675,7 +675,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 
 REPLACE INTO `creature_spawn_entry` (`guid`, `entry`) SELECT `guid`, 16402 FROM `creature` WHERE `guid` BETWEEN 5303636 AND 5303726;
 REPLACE INTO `creature_spawn_entry` (`guid`, `entry`) SELECT `guid`, 16403 FROM `creature` WHERE `guid` BETWEEN 5303636 AND 5303726;
-UPDATE `creature` SET `id` = 0 WHERE `guid` BETWEEN 5302449 AND 5302484;
+UPDATE `creature` SET `id` = 0 WHERE `guid` BETWEEN 5303636 AND 5303726;
 
 -- =============
 -- The North Sea
@@ -717,7 +717,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (5303622, 16404, 530, 8049.63, -5517.96, -25.7112, 5.20108, 300, 300, 25, 1),
 (5303623, 16404, 530, 8116.96, -5448.62, -46.0617, 0.698132, 300, 300, 25, 1),
 (5303624, 16404, 530, 8115.65, -5582.93, -4.67935, 3.07178, 300, 300, 25, 1),
-(5303625, 16404, 530, 8181.52, -5517.78, -21.4738, 3.9968, 300, 300, 15, 1),
+(5303625, 16404, 530, 8181.52, -5517.78, -21.4738, 3.9968, 300, 300, 25, 1),
 
 (5303626, 16405, 530, 6929.59, -5718.05, -2.57678, 4.20766, 300, 300, 25, 1),
 (5303627, 16405, 530, 6786.31, -5718.75, -11.0892, 3.22507, 300, 300, 25, 1),
@@ -2483,7 +2483,7 @@ INSERT INTO `creature_movement_template` (`Entry`, `PathId`, `Point`, `PositionX
 
 DELETE FROM `dbscripts_on_creature_movement` WHERE `id` = 1721001;
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `datafloat`, `x`, `y`, `z`, `o`, `speed`, `condition_id`, `comments`) VALUES
-(1721001, 0, 	0, 31, 16330, 5, 0, 14910, 20, 1, -12000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Leader - Terminate Script If Sentinel Spy (16330) Is Not Found in Range'),
+(1721001, 0, 	0, 31, 16330, 5, 0, 0, 0, 1, -12000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Leader - Terminate Script If Sentinel Spy (16330) Is Not Found in Range'),
 (1721001, 1000, 0, 1, 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Leader - EMOTE_ONESHOT_SALUTE (66)'),
 (1721001, 3000, 0, 1, 1, 0, 0, 16330, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Spy - EMOTE_ONESHOT_TALK (1)'),
 (1721001, 5000, 0, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Leader - EMOTE_ONESHOT_QUESTION (6)'),
@@ -2728,7 +2728,7 @@ INSERT INTO `creature_movement` (`Id`, `Point`, `PositionX`, `PositionY`, `Posit
 
 DELETE FROM `dbscripts_on_creature_movement` WHERE `id` = 1633301;
 INSERT INTO `dbscripts_on_creature_movement` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `buddy_entry`, `search_radius`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `datafloat`, `x`, `y`, `z`, `o`, `speed`, `condition_id`, `comments`) VALUES
-(1633301, 0, 	0, 31, 16333, 5, 0, 14910, 20, 1, -12000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Infiltrator (Master) - Terminate Script If Sentinel Infiltrator (16333) Is Not Found in Range'),
+(1633301, 0, 	0, 31, 16333, 5, 0, 0, 0, 1, -12000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Infiltrator (Master) - Terminate Script If Sentinel Infiltrator (16333) Is Not Found in Range'),
 (1633301, 1000, 0, 1, 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Infiltrator (Master) - EMOTE_ONESHOT_SALUTE (66)'),
 (1633301, 1000, 0, 1, 66, 0, 0, 16333, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Infiltrator - EMOTE_ONESHOT_SALUTE (66)'),
 (1633301, 3000, 0, 1, 1, 0, 0, 16333, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Sentinel Infiltrator - EMOTE_ONESHOT_TALK (1)'),
