@@ -90,9 +90,6 @@ UPDATE gameobject_template SET data1=3701 WHERE entry=153556;
 -- Make object 181444 (Kel'Thuzad Trigger) despawnable on usage
 UPDATE gameobject_template SET data4=1 WHERE entry=181444;
 
--- Disable a single spawn of GO (Black Lotus) as it is spawned under map and would break pooling in its zone
-UPDATE gameobject SET spawntimesecsmin=-3600, spawntimesecsmax=-3600 WHERE guid=86503;
-
 -- Ritual Candle Aura
 UPDATE gameobject_template SET `data8`=1 WHERE entry=179688; -- add serverside attribute so that it's not visible to players
 UPDATE gameobject_template SET `faction`=1375 WHERE entry=179688; -- "Treasure" faction 1375 here is guessed based on when patch 1.4 was released, and the fact that it's hostile to Demon faction 90
@@ -123,6 +120,9 @@ UPDATE gameobject_template SET data1=0 WHERE entry=179004;
 -- Inconspicuous Landmark 142189 - consumable, despawn on s.11462 expire
 UPDATE `gameobject_template` SET `data5` = 1 WHERE `entry` = 142189; -- 19660800 / 65536 = 300sec
 
+-- hack - this bypasses despawn prevention due to GO casting a hidden 6 second spell the GO should cast - note will be put down even in core
+UPDATE gameobject_template SET data3=65536*6 WHERE entry IN(180619);
+
 -- -------------------------------
 -- Item custom changes
 -- -------------------------------
@@ -133,11 +133,6 @@ UPDATE item_template SET class=0, subclass=3 WHERE entry=5514;
 -- -------------------------------
 -- Creature custom changes
 -- -------------------------------
-
--- modelids with probability = 0
-UPDATE creature_template SET `modelid2` = 0, `modelid3` = 0, `modelid4` = 0 WHERE `entry` IN (
-5764 -- Guardian of B
-);
 
 -- ============================================================
 -- TBC section
@@ -169,6 +164,10 @@ UPDATE `gameobject_template` SET `data5` = 1 WHERE `entry` IN (185497,185500);
 UPDATE gameobject_template SET data5=1 WHERE entry=184906; -- Power Converter (consumable)
 UPDATE gameobject_template SET data8=1 WHERE entry=184910; -- Power Converter (serverside)
 
+-- o.184958 'Nether Drake Egg'
+-- trap makes it look like double spawn - removing its display fixes issue
+UPDATE gameobject_template SET displayId = 0 WHERE entry = 184958;
+
 -- -------------------------------
 -- Item custom changes
 -- -------------------------------
@@ -195,19 +194,11 @@ UPDATE broadcast_text SET `text`="Should Kil'jaeden rise up through the Sunwell 
 -- Creature custom changes
 -- -------------------------------
 
--- modelids with probability = 0
-UPDATE creature_template SET `modelid2` = 0, `modelid3` = 0, `modelid4` = 0 WHERE `entry` IN (
-17734, -- Underbog Lord
-17459, -- Chess Waiting Room (DND)
-18095, -- Doomfire
-18104, -- Doomfire Targeting
-19632, -- Lykul Stinger (6633,7350,11091)
-20155, -- Hillsbrad Internment Lodge Quest Trigger
-20156, -- Thrall Quest Trigger
-25265, -- Demonic Vapor
-25267, -- Demonic Vapor (Trail)
-25703 -- Brutallus Death Cloud
-);
+-- Shattered Halls Dummys add not_attackable and imun by npcs flags
+-- Before: update creature_template set UnitFlags = '2304' where entry = 17578;
+UPDATE creature_template SET UnitFlags = UnitFlags|640 WHERE entry = 17578;
+
+-- -------------------------------
 
 UPDATE `creature_template` SET `name` = 'Redeemed Spirit of Earth' WHERE `entry` = 21739; -- Redeemed Spriit of Earth
 
@@ -216,3 +207,11 @@ UPDATE `creature_template` SET `name` = 'Redeemed Spirit of Earth' WHERE `entry`
 -- -------------------------------
 
 -- None
+
+-- -------------------------------
+-- Spell custom changes
+-- -------------------------------
+
+-- Dance Vibe spell should not stack
+UPDATE `spell_template` SET `StackAmount`='1' WHERE (`Id`='29521');
+
