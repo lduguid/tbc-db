@@ -20,10 +20,12 @@ INSERT INTO `creature_movement` (`id`, `point`, `PositionX`, `PositionY`, `Posit
 (@CGUID+32, 2, -177.074, 165.965, -47.4112, 0, 0, 0),
 (@CGUID+32, 3, -195.662, 169.764, -47.4042, 0, 0, 0),
 (@CGUID+32, 4, -177.074, 165.965, -47.4112, 0, 0, 0),
-(@CGUID+77, 1, 57.9032, 373.95, -38.2499, 0, 0, 0),
-(@CGUID+77, 2, 75.2625, 395.951, -38.2749, 0, 0, 0),
-(@CGUID+77, 3, 62.5435, 409.664, -38.2636, 0, 0, 0),
-(@CGUID+77, 4, 75.2625, 395.951, -38.2749, 0, 0, 0),
+(@CGUID+77, 1, 46.93654, 365.7811, -43.6487, 100, 0, 0),
+(@CGUID+77, 2, 56.06172, 373.4841, -38.95367, 100, 0, 0),
+(@CGUID+77, 3, 73.816101, 395.850006, -38.275299, 100, 0, 0),
+(@CGUID+77, 4, 58.848999, 413.424011, -39.720901, 100, 0, 0),
+(@CGUID+77, 5, 42.929298, 437.264008, -41.045399, 100, 0, 0),
+(@CGUID+77, 6, 50.816101, 445.303009, -41.051300, 100, 0, 0),
 (@CGUID+109, 1, -186.122, 284.889, -47.9277, 100, 0, 0),
 (@CGUID+109, 2, -184.537, 290.529, -48.2939, 100, 0, 0),
 (@CGUID+109, 3, -181.906, 297.89, -50.6951, 100, 0, 0),
@@ -151,13 +153,15 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `stand_state`, `sheath
 (7011, 0, 0, 1, 0, 0, '7165'), -- Earthen Rocksmasher
 (7012, 0, 0, 1, 0, 0, NULL), -- Earthen Sculptor
 (7022, 0, 0, 1, 0, 0, NULL), -- Venomlash Scorpid
-(7023, 0, 0, 1, 0, 0, NULL), -- Obsidian Sentinel
+(7023, 0, 0, 1, 0, 0, '9941'), -- Obsidian Sentinel
 (7030, 0, 0, 1, 0, 0, NULL), -- Shadowforge Geologist
 (7076, 0, 0, 1, 0, 0, '10255'), -- Earthen Guardian
 (7077, 0, 0, 1, 0, 0, '10255'), -- Earthen Hallshaper
 (7078, 0, 0, 1, 0, 0, '7276'), -- Cleft Scorpid
+(7172, 0, 0, 1, 0, 0, '11011'), -- Lore Keeper of Norgannon
 (7175, 0, 0, 1, 0, 0, NULL), -- Stonevault Ambusher
 (7206, 0, 0, 1, 0, 0, NULL), -- Ancient Stone Keeper
+(7209, 0, 0, 1, 0, 0, '10074'), -- Obsidian Shard
 (7226, 0, 0, 1, 0, 0, '10092'), -- Sand Storm
 (7290, 0, 0, 1, 0, 0, NULL), -- Shadowforge Sharpshooter
 (7291, 0, 0, 1, 0, 0, NULL), -- Galgann Firehammer
@@ -166,17 +170,24 @@ REPLACE INTO `creature_template_addon` (`entry`, `mount`, `stand_state`, `sheath
 (7321, 0, 0, 1, 0, 0, NULL), -- Stonevault Flameweaver
 (7396, 0, 0, 1, 0, 0, '7165'), -- Earthen Stonebreaker
 (7397, 0, 0, 1, 0, 0, NULL), -- Earthen Stonecarver
-(7405, 0, 0, 1, 0, 0, '3616'), -- Deadly Cleft Scorpid
+(7405, 0, 0, 1, 0, 0, '7276'), -- Deadly Cleft Scorpid
 (10120, 0, 0, 1, 0, 0, '10255'), -- Vault Warder
 (11073, 0, 0, 1, 0, 0, NULL); -- Annora
 
--- INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES
+(@CGUID+223, @CGUID+222, 3), -- Stonevault Ambusher -> Stonevault Ambusher
+(@CGUID+224, @CGUID+222, 3), -- Stonevault Ambusher -> Stonevault Ambusher
+(@CGUID+225, @CGUID+222, 3), -- Stonevault Ambusher -> Stonevault Ambusher
+(@CGUID+226, @CGUID+222, 3), -- Stonevault Ambusher -> Stonevault Ambusher
+(@CGUID+227, @CGUID+222, 3); -- Stonevault Ambusher -> Stonevault Ambusher
 
 REPLACE INTO `creature_linking_template` (`entry`, `map`, `master_entry`, `flag`, `search_range`) VALUES
 (7076, 70, 2748, 20, 0), -- Earthen Guardian -> Archaedas
 (7077, 70, 2748, 20, 0), -- Earthen Hallshaper -> Archaedas
 (7309, 70, 2748, 20, 0), -- Earthen Custodian -> Archaedas
-(10120, 70, 2748, 20, 0); -- Vault Warder -> Archaedas
+(10120, 70, 2748, 20, 0), -- Vault Warder -> Archaedas
+(6907, 70, 6906, 3, 0), -- Eric "The Swift" -> Baelog
+(6908, 70, 6906, 3, 0); -- Olaf -> Baelog
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `spawndist`, `MovementType`) VALUES
 (@CGUID+1, 2748, 70, 104.338, 272.31, -51.6959, 3.64774, 43200, 43200, 0, 0), -- Archaedas
@@ -203,7 +214,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+22, 4850, 70, -332, 112.267, -54.0304, 5.06145, 7200, 7200, 2, 1), -- Stonevault Cave Lurker
 (@CGUID+23, 4850, 70, -338.709, 139.708, -49.575, 4.29351, 7200, 7200, 3, 1), -- Stonevault Cave Lurker
 (@CGUID+24, 4850, 70, -305.035, 131.561, -46.5367, 3.56047, 7200, 7200, 0, 0), -- Stonevault Cave Lurker
-(@CGUID+25, 4851, 70, -228.116, 177.455, -44.6301, 3.06182, 7200, 7200, 2, 1), -- Stonevault Rockchewer
+(@CGUID+25, 0, 70, -228.116, 177.455, -44.6301, 3.06182, 86400, 86400, 3, 1), -- spawn_group
 (@CGUID+26, 4851, 70, -280.755, 79.9444, -48.7191, 5.88176, 7200, 7200, 3, 1), -- Stonevault Rockchewer
 (@CGUID+27, 4851, 70, -178.939, 169.876, -47.3264, 0.802851, 7200, 7200, 2, 1), -- Stonevault Rockchewer
 (@CGUID+28, 4851, 70, -176.355, 61.1042, -48.7257, 6.16101, 7200, 7200, 3, 1), -- Stonevault Rockchewer
@@ -222,7 +233,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+41, 4851, 70, -244.22, 90.1088, -48.0306, 3.45953, 7200, 7200, 2, 1), -- Stonevault Rockchewer
 (@CGUID+42, 4851, 70, -212.481, 88.8378, -48.0205, 3.08739, 7200, 7200, 2, 1), -- Stonevault Rockchewer
 (@CGUID+43, 4851, 70, -230.612, 129.842, -46.6282, 1.46608, 7200, 7200, 2, 1), -- Stonevault Rockchewer
-(@CGUID+44, 4852, 70, -233.511, 170.852, -44.6301, 2.58106, 7200, 7200, 2, 1), -- Stonevault Oracle
+(@CGUID+44, 0, 70, -233.511, 170.852, -44.6301, 2.58106, 86400, 86400, 3, 1), -- spawn_group
 (@CGUID+45, 4852, 70, -266.266, 90.8042, -48.711, 0.575959, 7200, 7200, 2, 1), -- Stonevault Oracle
 (@CGUID+46, 4852, 70, -174.321, 165.9, -47.3283, 4.43314, 7200, 7200, 3, 1), -- Stonevault Oracle
 (@CGUID+47, 4852, 70, -245.23, 96.0977, -48.0381, 6.00393, 7200, 7200, 2, 1), -- Stonevault Oracle
@@ -255,7 +266,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+74, 4853, 70, 37.5974, 438.76, -40.9636, 4.7822, 7200, 7200, 3, 1), -- Stonevault Geomancer
 (@CGUID+75, 4853, 70, 43.393, 304.585, -39.5612, 5.48033, 7200, 7200, 0, 0), -- Stonevault Geomancer
 (@CGUID+76, 4854, 70, 56.7096, 455.299, -40.9623, 4.2586, 43200, 43200, 0, 0), -- Grimlok
-(@CGUID+77, 4855, 70, 57.9032, 373.95, -38.2499, 4.2516, 7200, 7200, 0, 2), -- Stonevault Brawler
+(@CGUID+77, 4855, 70, 46.93654, 365.7811, -43.6487, 0, 7200, 7200, 0, 4), -- Stonevault Brawler
 (@CGUID+78, 4855, 70, 9.28976, 332.21, -38.6322, 5.21853, 7200, 7200, 3, 1), -- Stonevault Brawler
 (@CGUID+79, 4855, 70, 78.8918, 404.942, -38.1789, 5.02655, 7200, 7200, 2, 1), -- Stonevault Brawler
 (@CGUID+80, 4855, 70, 85.4878, 403.676, -38.1789, 6.12611, 7200, 7200, 2, 1), -- Stonevault Brawler
@@ -302,7 +313,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `positi
 (@CGUID+121, 6906, 70, -353.007, 117.186, -44.3684, 0.523599, 43200, 43200, 0, 0), -- Baelog
 (@CGUID+122, 6907, 70, -358.335, 118.947, -44.3836, 0.942478, 43200, 43200, 0, 0), -- Eric "The Swift"
 (@CGUID+123, 6908, 70, -356.985, 132.094, -47.6973, 1.3439, 43200, 43200, 0, 0), -- Olaf
-(@CGUID+124, 6910, 70, -225.598, 161.224, -44.5463, 0.034907, 43200, 43200, 0, 0), -- Revelosh
+(@CGUID+124, 0, 70, -225.598, 161.224, -44.5463, 0.034907, 86400, 86400, 3, 1), -- spawn_group
 (@CGUID+125, 6912, 70, -176.003, 169.17, -47.3276, 2.68781, 7200, 7200, 0, 0), -- Remains of a Paladin
 (@CGUID+126, 7011, 70, -72.984, 219.844, -49.7103, 0.11546, 7200, 7200, 2, 1), -- Earthen Rocksmasher
 (@CGUID+127, 7011, 70, -81.0191, 225.437, -49.7123, 5.79837, 7200, 7200, 3, 1), -- Earthen Rocksmasher
@@ -760,9 +771,13 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 
 INSERT INTO `spawn_group` (`Id`, `Name`, `Type`, `MaxCount`, `WorldState`, `Flags`) VALUES
 (@SGGUID+0, 'Uldaman - Cleft Scorpid (10) - Annora', 0, 10, 0, 3),
-(@SGGUID+1, 'Uldaman - Annora (11073)', 0, 1, @CONDITION+1, 0);
+(@SGGUID+1, 'Uldaman - Annora (11073)', 0, 1, @CONDITION+1, 0),
+(@SGGUID+2, 'Uldaman - Revelosh | Stonevault Rockchewer | Stonevault Oracle (3)', 0, 3, 0, 1);
 
--- INSERT INTO `spawn_group_entry` (`Id`, `Entry`, `MinCount`, `MaxCount`, `Chance`) VALUES
+INSERT INTO `spawn_group_entry` (`Id`, `Entry`, `MinCount`, `MaxCount`, `Chance`) VALUES
+(@SGGUID+2, 4851, 1, 1, 0), -- Stonevault Rockchewer
+(@SGGUID+2, 4852, 1, 1, 0), -- Stonevault Oracle
+(@SGGUID+2, 6910, 1, 1, 0); -- Revelosh
 
 INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
 (@SGGUID+0, @CGUID+200, '0'), -- Cleft Scorpid
@@ -775,7 +790,10 @@ INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
 (@SGGUID+0, @CGUID+207, '0'), -- Cleft Scorpid
 (@SGGUID+0, @CGUID+208, '0'), -- Cleft Scorpid
 (@SGGUID+0, @CGUID+209, '0'), -- Cleft Scorpid
-(@SGGUID+1, @CGUID+324, '0'); -- Annora
+(@SGGUID+1, @CGUID+324, '0'), -- Annora
+(@SGGUID+2, @CGUID+25, '0'), -- Revelosh
+(@SGGUID+2, @CGUID+44, '0'), -- Revelosh
+(@SGGUID+2, @CGUID+124, '0'); -- Revelosh
 
 -- INSERT INTO `spawn_group_formation` (`Id`, `FormationType`, `FormationSpread`, `FormationOptions`, `PathId`, `MovementType`, `Comment`) VALUES
 -- INSERT INTO `waypoint_path_name` (`PathId`, `Name`) VALUES

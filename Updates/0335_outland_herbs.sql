@@ -1,52 +1,53 @@
 SET @SGGUID := 21300;
 SET @GGUID := 5307600;
--- Golden Sansam - 176583 - https://www.wowhead.com/object=176583/golden-sansam
--- hellfire peninsula - 
--- zangarmarsh        - 
--- terokkar           - 
--- nagrand            - 
--- blades edge        - 
--- netherstorm        - 
--- shadowmoon         - 
--- total         
+-- Dreamfoil - 176584 - https://www.wowhead.com/tbc/object=176584/dreamfoil
+-- hellfire peninsula - 61
+-- zangarmarsh        - 41
+-- total             - 102
 
--- Mountain Silversage - 176586 - https://www.wowhead.com/object=176586/mountain-silversage     
+-- Golden Sansam - 176583 - https://www.wowhead.com/tbc/object=176583/golden-sansam
+-- hellfire peninsula - 58
+-- zangarmarsh        - 52
+-- netherstorm        - 16
+-- total             - 126
 
--- Hellfire Spineleaf - 181372 - https://www.wowhead.com/object=181372/hellfire-spineleaf
+-- Mountain Silversage - 176586 - https://www.wowhead.com/tbc/object=176586/mountain-silversage
+-- hellfire peninsula - 55
+
+-- Blindweed - 183046 - https://www.wowhead.com/tbc/object=183046/blindweed
+-- zangarmarsh - 59
+
+-- Liferoot - 2041 - https://www.wowhead.com/tbc/object=2041/liferoot
+-- netherstorm - 8
+
+-- Hellfire Spineleaf - 181372 - https://www.wowhead.com/tbc/object=181372/hellfire-spineleaf
+-- hellfire peninsula - 100
 
 -- Felweed - rough map counts - 181270 - https://www.wowhead.com/object=181270/felweed
--- hellfire peninsula - 
--- zangarmarsh        - 
--- terokkar           - 
--- nagrand            - 
--- blades edge        - 
--- netherstorm        - 
--- shadowmoon         - 
--- total              
+-- hellfire peninsula - 148
+-- zangarmarsh        - 117 - different entry
+-- terokkar           - 91
+-- nagrand            - 145
+-- blades edge        - 100
+-- netherstorm        - 20
+-- shadowmoon         - 90
+-- total              594 + 117
 
 -- Dreaming Glory - rough map counts - 181271 - https://www.wowhead.com/object=181271/dreaming-glory
--- hellfire peninsula - 
--- zangarmarsh        - 
--- terokkar           - 
--- nagrand            - 
--- blades edge        - 
--- netherstorm        - 
--- shadowmoon         - 
--- total            
+-- hellfire peninsula - 52
+-- zangarmarsh        - 58 - different entry
+-- terokkar           - 86
+-- nagrand            - 100
+-- blades edge        - 85
+-- netherstorm        - 84
+-- shadowmoon         - 41
+-- total            448 + 58
 
--- Ragveil - rough map counts - 181275 - https://www.wowhead.com/object=181275/ragveil
--- hellfire peninsula - 
--- zangarmarsh        - 
--- terokkar           - 
--- nagrand            - 
--- blades edge        - 
--- netherstorm        - 
--- shadowmoon         - 
--- total        
+-- Ragveil - rough map counts - 183043 - https://www.wowhead.com/tbc/object=183043/ragveil + https://www.wowhead.com/tbc/object=181276/flame-cap
+-- zangarmarsh        - 174
 
--- Flamecap - 181276 - https://www.wowhead.com/object=181276/flame-cap
--- zangarmarsh        - 
--- total        
+-- Ghost Mushroom
+-- zangarmarsh - 12
 
 -- select count(*) from gameobject where map=530 and id = 181277;
 -- Terocone - rough map counts - 181277 - https://www.wowhead.com/object=181277/terocone
@@ -177,7 +178,7 @@ INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
 (@SGGUID+5, @GGUID+13, -1),
 -- Nagrand North
 (@SGGUID+6, @GGUID+9, -1),
-(@SGGUID+5, @GGUID+26, -1),
+(@SGGUID+6, @GGUID+26, -1),
 (@SGGUID+6, @GGUID+28, -1),
 (@SGGUID+6, @GGUID+53, -1),
 -- Barrier Hills 01
@@ -222,11 +223,11 @@ INSERT INTO `spawn_group_spawn` (`Id`, `Guid`, `SlotId`) VALUES
 -- total                121
 
 -- select count(*) from gameobject where map=530 and id = 181280;
--- Nightmare Vine - rough map counts - 181280 - https://www.wowhead.com/object=181280/nightmare-vine
--- hellfire peninsula - 12
--- blades edge        - 23
+-- Nightmare Vine - rough map counts - 181280 - https://www.wowhead.com/tbc/object=181280/nightmare-vine
+-- hellfire peninsula - 3
+-- blades edge        - 6
 -- shadowmoon         - 103
--- total                138
+-- total                112
 
 -- select count(*) from gameobject where map=530 and id = 185881;
 -- Netherdust Bush - 185881 - https://www.wowhead.com/object=185881/netherdust-bush
